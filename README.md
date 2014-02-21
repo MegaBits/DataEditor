@@ -1,4 +1,4 @@
-DesignTools
+DataEditor
 ===========
 
-Game design, content management, and battle testing tools.
+Game design content management
