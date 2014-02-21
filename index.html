@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Megabits List</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div id="megabits">
+            <form id="addMegabit" action="#">
+                <div>
+                <!-- This should be automatically generated. 
+                    <label for="encyclopediaNumber">Encyclopedia Number: </label>
+                    <input id="encyclopediaNumber" type="text" /> -->
+                    <label for="name">Name: </label>
+                    <input id="name" type="text" />
+                    <label for="typeObject">Type: </label>
+                    <select id="typeObject">
+                        <option value="MBGroundType">Ground</option>
+                        <!--Grass,Fire,Water,Electricity,Strength,Spirit,Ice-->
+                    </select>
+                    <label for="subtypeObject">Subtype: </label>
+                    <select id="subtypeObject">
+                        <option value="MBGroundType">Ground</option>
+                        <!--Grass,Fire,Water,Electricity,Strength,Spirit,Ice-->
+                        <!-- IF NO SUBTYPE. NONE = typeObject --> 
+                    </select>  
+                    <label for="rarityObject">Rarity: </label>
+                    <select id="rarityObject">
+                        <option value="MBMegaBitCommonRarity">Common</option>
+                        <option value="MBMegaBitUncommonRarity">Uncommon</option>
+                        <option value="MBMegaBitRareRarity">Rare</option>
+                        <option value="MBMegaBitLegendaryRarity">Legendary</option>
+                    </select>                 
+                    <label for="regionString">Region: </label>
+                    <input id="regionString" type="text" />
+                    <label for="diurnalityObject">Diurnality: </label>
+                    <select id="diurnalityObject">
+                        <option value="MBAnyDiurnality">Any</option>
+                        <option value="MBDiurnalDiurnality">Diurnal</option>
+                        <option value="MBNocturnalNocturnality">Nocturnal</option>
+                    </select>  
+                    <label for="levelRangeString">Level Range: </label>
+                    <input id="levelRangeString" type="text" placeholder="{#, #}" />
+                    <label for="heightRangeString">Height Range: </label>
+                    <input id="heightRangeString" type="text" placeholder="{#, #}" />
+                    <label for="weightRangeString">Weight Range: </label>
+                    <input id="weightRangeString" type="text" placeholder="{#, #}" />
+                    <label for="weightRangeString">Likelihood Male: </label>
+                    <!-- Not sure input type -->
+                    <label for="encyclopediaDescription">Description: </label>
+                    <input id="encyclopediaDescription" type="text" />
+                    <label for="baseHealth">Health: </label>
+                    <input id="baseHealth" type="text" />
+                    <label for="baseAttack">Attack: </label>
+                    <input id="baseAttack" type="text" />
+                    <label for="baseDefense">Defense: </label>
+                    <input id="baseDefense" type="text" />
+                    <label for="baseAccuracy">Accuracy: </label>
+                    <input id="baseAccuracy" type="text" />
+                    <label for="baseSpeed">Speed: </label>
+                    <input id="baseSpeed" type="text" />
+                    <!-- overworldSpriteSheetName = Overworld_%encylopediaNumber%_%name% -->
+                    <label for="overworldSpriteSheetSpriteSizeString">Sprite Size: </label> <!-- is this editable or pulled from spite image? -->
+                    <input id="overworldSpriteSheetSpriteSizeString" type="text" placeholder="{#.#, #.#}" />
+                    <label for="overworldSpriteStepsInPlace">Steps in place? </label>
+                    <select id="overworldSpriteStepsInPlace">
+                        <option value="NO">No</option>
+                        <option value="YES">Yes</option>
+                    </select>  
+                     <!-- battleSpriteSheetName = Battle_%encyclopediaNumber%_%name% -->
+                     <!-- battleCallName = MegaBit_%encyclopediaNumber%_%name%.wav -->
+                    <label for="learnableMoveTypes">Learnable Moves: </label>
+                    <input id="learnableMoveTypes" type="text" /><!-- should this be a checkbox that concats to string? -->
+                    <label for="naturallyLearnableMoveTypes">Learnable Moves: </label>
+                    <input id="naturallyLearnableMoveTypes" type="text" /><!-- should this be a checkbox that concats to string? -->
+                    <label for="hidden">Hidden? </label>
+                    <select id="hidden">
+                        <option value="NO">No</option>
+                        <option value="YES">Yes</option>
+                    </select>  
+                    <label for="uuid">uuid: </label>
+                    <input id="uuid" type="text" /><!-- what is dis?-->
+                    <button id="add">Add</button>
+                </div>
+            </form>
+        </div>
+        <script id="megabitTemplate" type="text/template">
+            <ul>
+                <li><%= encyclopediaNumber %></li>
+                <li><%= name %></li>
+                <li><%= typeObject %></li>
+                <li><%= subtypeObject %></li>
+                <li><%= rarityObject %></li>
+                <li><%= regionString %></li>
+                <li><%= diurnalityObject %></li>
+                <li><%= levelRangeString %></li>
+                <li><%= heightRangeString %></li>
+                <li><%= weightRangeString %></li>
+                <li><%= maleSexLikelihood %></li>
+                <li><%= encyclopediaDescription %></li>
+                <li><%= baseHealth %></li>
+                <li><%= baseAttack %></li>
+                <li><%= baseAccuracy %></li>
+                <li><%= baseSpeed %></li>
+                <li><%= overworldSpriteSheetName %></li>
+                <li><%= overworldSpriteSheetSpriteSizeString %></li>
+                <li><%= overworldSpriteSheetName %></li>
+                <li><%= battleCallName %></li>
+                <li><%= learnableMoveTypes %></li>
+                <li><%= naturallyLearnableMoveTypes %></li>
+                <li><%= hidden %></li>
+                <li><%= uuid %></li>
+            </ul>
+            <button class="delete">Delete</button>
+        </script>
+
+        <script src="js/lib/jquery.js"></script>
+        <script src="js/lib/underscore.js"></script>
+        <script src="js/lib/backbone.js"></script>
+        <script src="js/models/megabit.js"></script>
+        <script src="js/collections/megabits.js"></script>
+        <!-- <script src="js/views/megabit.js"></script> Not sure if I need/want two views -->
+        <script src="js/views/megabits.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
